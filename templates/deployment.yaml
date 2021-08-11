@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: helx-ui
+  name: {{ include "ui.fullname" . }}
   labels:
     {{- include "ui.labels" . | nindent 4 }}
 spec:
@@ -35,31 +35,43 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 3000
+              containerPort: 80
               protocol: TCP
           livenessProbe:
             initialDelaySeconds: 100
             httpGet:
               path: /
-              port: 3000
+              port: 80
           readinessProbe:
             initialDelaySeconds: 100
             httpGet:
               path: /
-              port: 3000
+              port: 80
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env: 
             - name: NODE_ENV
               value: production
-            - name: REACT_APP_HELX_APPSTORE_ENABLED
-              value: 'false'
+            - name: REACT_APP_WORKSPACES_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: workspaces_enabled
             - name: REACT_APP_UI_BRAND_NAME
-              value: 'heal'
-            - name: REACT_APP_UI_BRAND_LOGO
-              value: 'https://github.com/helxplatform/appstore/blob/develop/appstore/core/static/images/heal/logo.png?raw=true'
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: brand_name
+            - name: REACT_APP_SEMANTIC_SEARCH_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: search_enabled
             - name: REACT_APP_HELX_SEARCH_URL
-              value: {{ .Values.search_url }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: search_url
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 3000
+  port: 80
 
 ingress:
   enabled: false
@@ -55,6 +55,14 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+config:
+  brand_name: ""
+  search:
+    enabled: "true"
+    url: 'https:\/\/helx.renci.org'
+  workspaces:
+    enabled: "true"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

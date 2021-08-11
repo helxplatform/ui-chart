@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "ui.fullname" . }}-config
+  labels:
+    {{- include "ui.labels" . | nindent 4 }}
+data:
+  brand_name: {{ .Values.config.brand_name }}
+  search_enabled: {{ .Values.config.search.enabled | quote }}
+  search_url: '{{ .Values.config.search.url }}'
+  workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}

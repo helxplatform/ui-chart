@@ -72,6 +72,11 @@ spec:
                 configMapKeyRef:
                   name: {{ include "ui.fullname" . }}-config
                   key: search_url
+            - name: REACT_APP_ANLAYTICS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: analytics
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

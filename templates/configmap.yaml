@@ -9,3 +9,4 @@ data:
   search_enabled: {{ .Values.config.search.enabled | quote }}
   search_url: '{{ .Values.config.search.url }}'
   workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
+  analytics: {{ .Values.config.analytics | quote }}

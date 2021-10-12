@@ -63,6 +63,12 @@ config:
     url: 'https:\/\/helx.renci.org'
   workspaces:
     enabled: "true"
+  analytics:
+    enabled: true
+    platform: "mixpanel"
+    auth:
+      mixpanel_token:  "0c39f8410fd548bfa1976957d0248289"
+      ga_property: ""
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

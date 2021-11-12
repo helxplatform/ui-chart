@@ -77,6 +77,11 @@ spec:
                 configMapKeyRef:
                   name: {{ include "ui.fullname" . }}-config
                   key: analytics
+            - name: REACT_APP_TRANQL_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: tranql_enabled
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

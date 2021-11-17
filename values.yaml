@@ -66,6 +66,7 @@ config:
   analytics:
     token: "0c39f8410fd548bfa1976957d0248289"
   tranql_enabled: "true"
+  hidden_support_section: []
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

@@ -82,6 +82,11 @@ spec:
                 configMapKeyRef:
                   name: {{ include "ui.fullname" . }}-config
                   key: tranql_enabled
+            - name: REACT_APP_HIDDEN_SUPPORT_SECTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "ui.fullname" . }}-config
+                  key: hidden_support_sections
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -11,3 +11,4 @@ data:
   workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
   analytics: {{ .Values.config.analytics.token | quote }}
   tranql_enabled: {{ .Values.config.tranql_enabled | quote }}
+  tranql_url: {{ .Values.config.tranql_url | quote }}

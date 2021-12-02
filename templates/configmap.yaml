@@ -12,4 +12,4 @@ data:
   analytics: {{ .Values.config.analytics.token | quote }}
   tranql_enabled: {{ .Values.config.tranql_enabled | quote }}
   tranql_url: {{ .Values.config.tranql_url | quote }}
-  hidden_support_sections: {{ .Values.config.hidden_support_sections }}
+  hidden_support_sections: {{ .Values.config.hidden_support_sections | quote }}

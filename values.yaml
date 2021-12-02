@@ -66,6 +66,7 @@ config:
   analytics:
     token: "0c39f8410fd548bfa1976957d0248289"
   tranql_enabled: "true"
+  tranql_url: "https://helx.renci.org/tranql"
   # If you need to hide the any section on support page, add it in a comma-separated string. (i.e "community, documentation")
   # Current sections on support page: <community, documentation> 
   hidden_support_sections: ""

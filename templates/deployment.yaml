@@ -92,6 +92,10 @@ spec:
                 configMapKeyRef:
                   name: {{ include "ui.fullname" . }}-config
                   key: hidden_support_sections
+            - name: REACT_APP_DEPLOYMENT_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

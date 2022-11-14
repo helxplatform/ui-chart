@@ -5,11 +5,12 @@ metadata:
   labels:
     {{- include "ui.labels" . | nindent 4 }}
 data:
+  analytics: {{ .Values.config.analytics.token | quote }}
+  appstore_asset_branch: {{ .Values.config.appstore_asset_branch }}
   brand_name: {{ .Values.config.brand_name }}
+  hidden_support_sections: {{ .Values.config.hidden_support_sections | quote }}
   search_enabled: {{ .Values.config.search.enabled | quote }}
   search_url: '{{ .Values.config.search.url }}'
-  workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
-  analytics: {{ .Values.config.analytics.token | quote }}
   tranql_enabled: {{ .Values.config.tranql_enabled | quote }}
   tranql_url: {{ .Values.config.tranql_url | quote }}
-  hidden_support_sections: {{ .Values.config.hidden_support_sections | quote }}
+  workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}

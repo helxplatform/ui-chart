@@ -72,15 +72,15 @@ spec:
                 configMapKeyRef:
                   key: hidden_support_sections
                   name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_HIDDEN_RESULT_TABS
+              valueFrom:
+                configMapKeyRef:
+                  key: hidden_result_tabs
+                  name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_SEMANTIC_SEARCH_ENABLED
               valueFrom:
                 configMapKeyRef:
                   key: search_enabled
-                  name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_TRANQL_ENABLED
-              valueFrom:
-                configMapKeyRef:
-                  key: tranql_enabled
                   name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_TRANQL_URL
               valueFrom:

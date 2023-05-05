@@ -1,6 +1,6 @@
 # ui
 
-![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.1.0](https://img.shields.io/badge/AppVersion-2.1.0-informational?style=flat-square)
+![Version: 0.4.1](https://img.shields.io/badge/Version-0.4.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.1](https://img.shields.io/badge/AppVersion-4.0.1-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -20,7 +20,7 @@ A Helm chart for Kubernetes
 | config.hidden_support_sections | string | `""` |  |
 | config.search.enabled | string | `"true"` |  |
 | config.search.url | string | `"https:\\/\\/helx.renci.org"` |  |
-| config.tranql_url | string | `"https://helx.renci.org/tranql"` |  |
+| config.tranql_url | string | `"https:\\/\\/helx.renci.org\\/tranql\\/"` |  |
 | config.workspaces.enabled | string | `"true"` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

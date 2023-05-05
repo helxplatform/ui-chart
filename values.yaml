@@ -68,7 +68,7 @@ config:
   search:
     enabled: "true"
     url: 'https:\/\/helx.renci.org'
-  tranql_url: "https://helx.renci.org/tranql"
+  tranql_url: 'https:\/\/helx.renci.org\/tranql\/'
   workspaces:
     enabled: "true"
 

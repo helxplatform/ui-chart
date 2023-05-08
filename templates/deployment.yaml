@@ -31,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -52,26 +52,51 @@ spec:
           env: 
             - name: NODE_ENV
               value: production
-            - name: REACT_APP_WORKSPACES_ENABLED
+            - name: REACT_APP_ANLAYTICS
               valueFrom:
                 configMapKeyRef:
+                  key: analytics
                   name: {{ include "ui.fullname" . }}-config
-                  key: workspaces_enabled
-            - name: REACT_APP_UI_BRAND_NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ include "ui.fullname" . }}-config
-                  key: brand_name
-            - name: REACT_APP_SEMANTIC_SEARCH_ENABLED
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ include "ui.fullname" . }}-config
-                  key: search_enabled
             - name: REACT_APP_HELX_SEARCH_URL
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "ui.fullname" . }}-config
                   key: search_url
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_APPSTORE_ASSET_BRANCH
+              valueFrom:
+                configMapKeyRef:
+                  key: appstore_asset_branch
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_HIDDEN_SUPPORT_SECTIONS
+              valueFrom:
+                configMapKeyRef:
+                  key: hidden_support_sections
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_HIDDEN_RESULT_TABS
+              valueFrom:
+                configMapKeyRef:
+                  key: hidden_result_tabs
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SEMANTIC_SEARCH_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  key: search_enabled
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_TRANQL_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: tranql_url
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_UI_BRAND_NAME
+              valueFrom:
+                configMapKeyRef:
+                  key: brand_name
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_WORKSPACES_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  key: workspaces_enabled
+                  name: {{ include "ui.fullname" . }}-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -5,7 +5,9 @@ metadata:
   labels:
     {{- include "ui.labels" . | nindent 4 }}
 data:
-  analytics: {{ .Values.config.analytics.token | quote }}
+  analytics_enabled: {{ .Values.config.analytics.enabled | quote }}
+  analytics_platform: {{ .Values.config.analytics.platform | quote }}
+  analytics_token: {{ .Values.config.analytics.token | quote }}
   appstore_asset_branch: {{ .Values.config.appstore_asset_branch }}
   brand_name: {{ .Values.config.brand_name }}
   hidden_support_sections: {{ .Values.config.hidden_support_sections | quote }}

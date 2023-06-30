@@ -52,10 +52,20 @@ spec:
           env: 
             - name: NODE_ENV
               value: production
-            - name: REACT_APP_ANLAYTICS
+            - name: REACT_APP_ANALYTICS_ENABLED
               valueFrom:
                 configMapKeyRef:
-                  key: analytics
+                  key: analytics_enabled
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_ANALYTICS_PLATFORM
+              valueFrom:
+                configMapKeyRef:
+                  key: analytics_platform
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_ANALYTICS_TOKEN
+              valueFrom:
+                configMapKeyRef:
+                  key: analytics_token
                   name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_HELX_SEARCH_URL
               valueFrom:

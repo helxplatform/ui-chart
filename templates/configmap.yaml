@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "ui.labels" . | nindent 4 }}
 data:
+  meta_title: {{ .Values.config.meta.title | quote }}
+  meta_description: {{ .Values.config.meta.description | quote }}
   analytics: {{ .Values.config.analytics.token | quote }}
   appstore_asset_branch: {{ .Values.config.appstore_asset_branch }}
   brand_name: {{ .Values.config.brand_name }}

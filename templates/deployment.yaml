@@ -97,6 +97,16 @@ spec:
                 configMapKeyRef:
                   key: workspaces_enabled
                   name: {{ include "ui.fullname" . }}-config
+            - name: META_TITLE
+              valueFrom:
+                configMapKeyRef:
+                  key: meta_title
+                  name: {{ include "ui.fullname" . }}-config
+            - name: META_DESCRIPTION
+              valueFrom:
+                configMapKeyRef:
+                  key: meta_description
+                  name: {{ include "ui.fullname" . }}-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

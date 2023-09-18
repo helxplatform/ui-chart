@@ -63,7 +63,9 @@ config:
     title: HeLx UI
     description: HeLx UI
   analytics:
-    token: "0c39f8410fd548bfa1976957d0248289"
+    enabled: false
+    platform: google
+    token: ""
   appstore_asset_branch: "master"
   brand_name: ""
   # If you need to hide the any section on support page, add it in a comma-separated string. (i.e "community, documentation")

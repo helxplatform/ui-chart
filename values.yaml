@@ -57,6 +57,11 @@ ingress:
   #      - chart-example.local
 
 config:
+  meta:
+    # These will configure what displays in the browser tab title
+    # and what shows when a link preview is displayed describing the page.
+    title: HeLx UI
+    description: HeLx UI
   analytics:
     enabled: false
     platform: google

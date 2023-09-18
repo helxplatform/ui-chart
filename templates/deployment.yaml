@@ -31,7 +31,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default (printf "v%s" .Chart.AppVersion) }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
@@ -106,6 +106,16 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: workspaces_enabled
+                  name: {{ include "ui.fullname" . }}-config
+            - name: META_TITLE
+              valueFrom:
+                configMapKeyRef:
+                  key: meta_title
+                  name: {{ include "ui.fullname" . }}-config
+            - name: META_DESCRIPTION
+              valueFrom:
+                configMapKeyRef:
+                  key: meta_description
                   name: {{ include "ui.fullname" . }}-config
       {{- with .Values.nodeSelector }}
       nodeSelector:

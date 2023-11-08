@@ -18,3 +18,4 @@ data:
   search_url: '{{ .Values.config.search.url }}'
   tranql_url: {{ .Values.config.tranql_url | quote }}
   workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
+  default_space: {{ .Values.config.default_space | quote }}

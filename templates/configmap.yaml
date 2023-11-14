@@ -18,4 +18,12 @@ data:
   search_url: '{{ .Values.config.search.url }}'
   tranql_url: {{ .Values.config.tranql_url | quote }}
   workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
+  {{- if and (eq .Values.config.workspaces.enabled "true") (eq .Values.config.search.enabled "false") }}
+  default_space: "workspaces"
+  {{- else if and (eq .Values.config.workspaces.enabled "false") (eq .Values.config.search.enabled "true") }}
+  default_space: "search"
+  {{- else if and (eq .Values.config.workspaces.enabled "true") (eq .Values.config.search.enabled "true") }}
   default_space: {{ .Values.config.default_space | quote }}
+  {{- else }}
+  default_space: "support"
+  {{- end }}

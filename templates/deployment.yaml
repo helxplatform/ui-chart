@@ -107,6 +107,11 @@ spec:
                 configMapKeyRef:
                   key: workspaces_enabled
                   name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_DEFAULT_SPACE
+              valueFrom:
+                configMapKeyRef:
+                  key: default_space
+                  name: {{ include "ui.fullname" . }}-config
             - name: META_TITLE
               valueFrom:
                 configMapKeyRef:

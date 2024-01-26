@@ -131,7 +131,22 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: login_text
-                  name: {{ include "ui.fullname" . }}-config                
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SUPPORT_HELP_PORTAL_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: support_help_portal_url
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SUPPORT_USER_GUIDE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: support_user_guide_url
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SUPPORT_FAQS_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: support_faqs_url
+                  name: {{ include "ui.fullname" . }}-config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -76,6 +76,10 @@ config:
     enabled: "true"
     url: 'https:\/\/helx.renci.org'
   tranql_url: 'https:\/\/helx.renci.org\/tranql\/'
+  support:
+    help_portal_url: ''
+    user_guide_url: ''
+    faqs_url: ''
   workspaces:
     enabled: "true"
   default_space: "search"

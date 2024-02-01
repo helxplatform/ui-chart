@@ -18,7 +18,6 @@ data:
   search_url: '{{ .Values.config.search.url }}'
   tranql_url: {{ .Values.config.tranql_url | quote }}
   login_title: {{ .Values.config.login_title | quote }}
-  login_text: {{ .Values.config.login_text | quote }}
   support_help_portal_url: {{ .Values.config.support.help_portal_url | quote }}
   support_user_guide_url: {{ .Values.config.support.user_guide_url | quote }}
   support_faqs_url: {{ .Values.config.support.faqs_url | quote }}

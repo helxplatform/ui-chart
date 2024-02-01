@@ -131,11 +131,6 @@ spec:
                 configMapKeyRef:
                   key: login_title
                   name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_LOGIN_TEXT
-              valueFrom:
-                configMapKeyRef:
-                  key: login_text
-                  name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_SUPPORT_HELP_PORTAL_URL
               valueFrom:
                 configMapKeyRef:

@@ -83,10 +83,8 @@ config:
   workspaces:
     enabled: "true"
   default_space: "search"
-  ## Title on the Login screen. If not set, this will be "<config.meta.title> Workspaces"
+  ## Heading on the Login screen. If not set, this will be "<config.meta.title> Workspaces"
   login_title: ""
-  ## Description for the workspaces that shows up on the login page.
-  login_text: "HeLx empowers researchers in domains from plant genomics to neuroscience to work with their preferred tools and apps in the cloud at scale. Its ability to empower researchers to leverage advanced analytical tools without installation or other infrastructure concerns has broad reaching benefits and can be applied in many domains."
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little

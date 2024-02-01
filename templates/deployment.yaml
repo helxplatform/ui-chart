@@ -49,6 +49,10 @@ spec:
               port: 8080
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: branddesc
+              mountPath: "/usr/share/nginx/static/frontend/brand_desc.html"
+              subPath: {{ .Values.config.brand_name }}
           env: 
             - name: NODE_ENV
               value: production
@@ -147,6 +151,10 @@ spec:
                 configMapKeyRef:
                   key: support_faqs_url
                   name: {{ include "ui.fullname" . }}-config
+      volumes:
+        - name: branddesc
+          configMap:
+            name: desc-cfgmap
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

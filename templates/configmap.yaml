@@ -22,6 +22,7 @@ data:
   support_user_guide_url: {{ .Values.config.support.user_guide_url | quote }}
   support_faqs_url: {{ .Values.config.support.faqs_url | quote }}
   workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
+  brand_desc: {{ .Values.config.brand_description.html | nindent 4 }}
   {{- if and (eq .Values.config.workspaces.enabled "true") (eq .Values.config.search.enabled "false") }}
   default_space: "workspaces"
   {{- else if and (eq .Values.config.workspaces.enabled "false") (eq .Values.config.search.enabled "true") }}

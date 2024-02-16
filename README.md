@@ -17,20 +17,25 @@ A Helm chart for Kubernetes
 | config.analytics.platform | string | `"google"` |  |
 | config.analytics.token | string | `""` |  |
 | config.appstore_asset_branch | string | `"master"` |  |
+| config.brand_description | object | `{"html":""}` | Multiline value (4 space indent) with html code describing the deployment, will be displayed on the Workspaces login page |
 | config.brand_name | string | `""` |  |
-| config.default_space | string | `"search"` |  |
+| config.default_space | string | `"search"` | Define landing page when the deployment is loaded. Default is support. Acceptable values: "workspaces", "search", "support" |
 | config.hidden_result_tabs | string | `""` |  |
-`""` |  |
-| config.meta.description | string | `"HeLx UI"` |  |
-| config.meta.title | string | `"HeLx UI"` |  |
-| config.search.enabled | string | `"true"` |  |
+| config.login_title | string | `""` | Heading on the Workspaces Login screen. If not set, this will be "<config.meta.title> Workspaces" |
+| config.meta.description | string | `"HeLx UI"` | Page description with a link preview. |
+| config.meta.title | string | `"HeLx UI"` | Browser tab title and title on "Workspaces" login page |
+| config.search.enabled | string | `"true"` | If search page should show up. This is configured to work with DUG |
 | config.search.url | string | `"https:\\/\\/helx.renci.org"` |  |
+| config.support | object | `{"faqs_url":"","help_portal_url":"","user_guide_url":""}` | Support page sections to display. If a link is provided, the corresponding section will be displayed |
+| config.support.faqs_url | string | `""` | Link for a page with FAQs. |
+| config.support.help_portal_url | string | `""` | Link to portal for submitting tickets/requesting features/reporting bugs |
+| config.support.user_guide_url | string | `""` | Link to a page with user instructions on how to use the deployment |
 | config.tranql_url | string | `"https:\\/\\/helx.renci.org\\/tranql\\/"` |  |
-| config.workspaces.enabled | string | `"true"` |  |
+| config.workspaces.enabled | string | `"true"` | Allow Workspaces. |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"helxplatform/helx-ui"` |  |
-| image.tag | string | `""` |  |
+| image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
@@ -48,9 +53,9 @@ A Helm chart for Kubernetes
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.name | string | `""` |  |
+| serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
+| serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
+| serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------

@@ -12,7 +12,6 @@ data:
   meta_description: {{ .Values.config.meta.description | quote }}
   appstore_asset_branch: {{ .Values.config.appstore_asset_branch }}
   brand_name: {{ .Values.config.brand_name }}
-  hidden_support_sections: {{ .Values.config.hidden_support_sections | quote }}
   hidden_result_tabs: {{ .Values.config.hidden_result_tabs | quote }}
   search_enabled: {{ .Values.config.search.enabled | quote }}
   search_url: '{{ .Values.config.search.url }}'

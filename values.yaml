@@ -70,7 +70,6 @@ config:
   brand_name: ""
   # If you need to hide the any section on support page, add it in a comma-separated string. (i.e "community, documentation")
   # Current sections on support page: <community, documentation> 
-  hidden_support_sections: ""
   hidden_result_tabs: ""
   search:
     enabled: "true"

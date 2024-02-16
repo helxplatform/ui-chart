@@ -51,8 +51,8 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: branddesc
-              mountPath: "/usr/share/nginx/static/frontend/"
-              subPath: brand_desc.html
+              mountPath: "/usr/share/nginx/static/frontend/brand_dec.html"
+              subPath: brand_desc
           env: 
             - name: NODE_ENV
               value: production
@@ -80,11 +80,6 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: appstore_asset_branch
-                  name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_HIDDEN_SUPPORT_SECTIONS
-              valueFrom:
-                configMapKeyRef:
-                  key: hidden_support_sections
                   name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_HIDDEN_RESULT_TABS
               valueFrom:

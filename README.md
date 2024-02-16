@@ -20,7 +20,7 @@ A Helm chart for Kubernetes
 | config.brand_name | string | `""` |  |
 | config.default_space | string | `"search"` |  |
 | config.hidden_result_tabs | string | `""` |  |
-| config.hidden_support_sections | string | `""` |  |
+`""` |  |
 | config.meta.description | string | `"HeLx UI"` |  |
 | config.meta.title | string | `"HeLx UI"` |  |
 | config.search.enabled | string | `"true"` |  |

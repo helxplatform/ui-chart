@@ -51,8 +51,8 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: branddesc
-              mountPath: "/usr/share/nginx/static/frontend/brand_dec.html"
-              subPath: brand_desc
+              mountPath: /usr/share/nginx/static/frontend/brand_desc.html
+              subPath: brand_desc.html
           env: 
             - name: NODE_ENV
               value: production
@@ -145,6 +145,9 @@ spec:
         - name: branddesc
           configMap:
             name: {{ include "ui.fullname" . }}-config
+            items:
+              - key: brand_desc.html
+                path: brand_desc.html
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

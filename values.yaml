@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: helxplatform/helx-ui
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
 imagePullSecrets: []
@@ -15,12 +15,11 @@ nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
@@ -58,9 +57,9 @@ ingress:
 
 config:
   meta:
-    # These will configure what displays in the browser tab title
-    # and what shows when a link preview is displayed describing the page.
+    # -- Browser tab title and title on "Workspaces" login page
     title: HeLx UI
+    # -- Page description with a link preview.
     description: HeLx UI
   analytics:
     enabled: false
@@ -68,17 +67,30 @@ config:
     token: ""
   appstore_asset_branch: "master"
   brand_name: ""
-  # If you need to hide the any section on support page, add it in a comma-separated string. (i.e "community, documentation")
-  # Current sections on support page: <community, documentation> 
-  hidden_support_sections: ""
   hidden_result_tabs: ""
   search:
+    # -- If search page should show up. This is configured to work with DUG
     enabled: "true"
     url: 'https:\/\/helx.renci.org'
   tranql_url: 'https:\/\/helx.renci.org\/tranql\/'
+  # -- Support page sections to display. If a link is provided, the corresponding section will be displayed
+  support:
+    # -- Link to portal for submitting tickets/requesting features/reporting bugs
+    help_portal_url: ''
+    # -- Link to a page with user instructions on how to use the deployment
+    user_guide_url: ''
+    # -- Link for a page with FAQs.
+    faqs_url: ''
   workspaces:
+    # -- Allow Workspaces.
     enabled: "true"
+  # -- Define landing page when the deployment is loaded. Default is support. Acceptable values: "workspaces", "search", "support"
   default_space: "search"
+  # -- Heading on the Workspaces Login screen. If not set, this will be "<config.meta.title> Workspaces"
+  login_title: ""
+  # -- Multiline value (4 space indent) with html code describing the deployment, will be displayed on the Workspaces login page
+  brand_description: 
+    html: |
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little

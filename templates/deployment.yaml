@@ -49,6 +49,10 @@ spec:
               port: 8080
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: branddesc
+              mountPath: /usr/share/nginx/static/frontend/brand_desc.html
+              subPath: brand_desc.html
           env: 
             - name: NODE_ENV
               value: production
@@ -76,11 +80,6 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: appstore_asset_branch
-                  name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_HIDDEN_SUPPORT_SECTIONS
-              valueFrom:
-                configMapKeyRef:
-                  key: hidden_support_sections
                   name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_HIDDEN_RESULT_TABS
               valueFrom:
@@ -122,6 +121,33 @@ spec:
                 configMapKeyRef:
                   key: meta_description
                   name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_LOGIN_TITLE
+              valueFrom:
+                configMapKeyRef:
+                  key: login_title
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SUPPORT_HELP_PORTAL_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: support_help_portal_url
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SUPPORT_USER_GUIDE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: support_user_guide_url
+                  name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_SUPPORT_FAQS_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: support_faqs_url
+                  name: {{ include "ui.fullname" . }}-config
+      volumes:
+        - name: branddesc
+          configMap:
+            name: {{ include "ui.fullname" . }}-config
+            items:
+              - key: brand_desc.html
+                path: brand_desc.html
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

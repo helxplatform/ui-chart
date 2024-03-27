@@ -1,8 +1,21 @@
 # ui
 
+A Helm chart for Kubernetes
+
 ![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.1.0](https://img.shields.io/badge/AppVersion-6.1.0-informational?style=flat-square)
 
-A Helm chart for Kubernetes
+## About HELX-UI
+
+HeLx UI provides a configurable user interface for the [HeLx](https://helxplatform.github.io/) platform.
+The UI supports access to a concept-based search tool, and scalebale configurable computing environments.
+The helm chart in this repo has the configurations necessary for the deployment to work with other components of the HeLx platform.
+Configurations support the ui implementation at [HeLx-UI Codebase](https://github.com/helxplatform/helx-ui).
+
+## CI/CD
+
+When the main branch of this chart is updated, using Github Actions we send the updated version to helm-charts repo to be indexed and packaged automatically.
+
+Additionally there is a workflow that allows bumping the chart version, if this is all that is needed to the cooresponding version of the appstore repository.
 
 ## Values
 
@@ -35,7 +48,7 @@ A Helm chart for Kubernetes
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"helxplatform/helx-ui"` |  |
-| image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
+| image.tag | string | `""` | Overrides the image tag whose default is the appVersion supplied in umbrella chart. |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |

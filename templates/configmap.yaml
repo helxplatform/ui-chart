@@ -12,12 +12,16 @@ data:
   meta_description: {{ .Values.config.meta.description | quote }}
   appstore_asset_branch: {{ .Values.config.appstore_asset_branch }}
   brand_name: {{ .Values.config.brand_name }}
-  hidden_support_sections: {{ .Values.config.hidden_support_sections | quote }}
   hidden_result_tabs: {{ .Values.config.hidden_result_tabs | quote }}
   search_enabled: {{ .Values.config.search.enabled | quote }}
   search_url: '{{ .Values.config.search.url }}'
   tranql_url: {{ .Values.config.tranql_url | quote }}
+  login_title: {{ .Values.config.login_title | quote }}
+  support_help_portal_url: {{ .Values.config.support.help_portal_url | quote }}
+  support_user_guide_url: {{ .Values.config.support.user_guide_url | quote }}
+  support_faqs_url: {{ .Values.config.support.faqs_url | quote }}
   workspaces_enabled: {{ .Values.config.workspaces.enabled | quote }}
+  brand_desc.html: {{ .Values.config.brand_description.html | nindent 4 }}
   {{- if and (eq .Values.config.workspaces.enabled "true") (eq .Values.config.search.enabled "false") }}
   default_space: "workspaces"
   {{- else if and (eq .Values.config.workspaces.enabled "false") (eq .Values.config.search.enabled "true") }}

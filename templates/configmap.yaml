@@ -10,6 +10,7 @@ data:
   analytics_token: {{ .Values.config.analytics.token | quote }}
   meta_title: {{ .Values.config.meta.title | quote }}
   meta_description: {{ .Values.config.meta.description | quote }}
+  appstore_asset_base_url: {{ .Values.config.appstore_asset_base_url }}
   appstore_asset_branch: {{ .Values.config.appstore_asset_branch }}
   brand_name: {{ .Values.config.brand_name }}
   hidden_result_tabs: {{ .Values.config.hidden_result_tabs | quote }}

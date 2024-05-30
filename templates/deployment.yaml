@@ -76,6 +76,11 @@ spec:
                 configMapKeyRef:
                   key: search_url
                   name: {{ include "ui.fullname" . }}-config
+            - name: REACT_APP_APPSTORE_ASSET_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  key: appstore_asset_base_url
+                  name: {{ include "ui.fullname" . }}-config
             - name: REACT_APP_APPSTORE_ASSET_BRANCH
               valueFrom:
                 configMapKeyRef:

@@ -65,7 +65,7 @@ config:
     enabled: false
     platform: google
     token: ""
-  appstore_asset_base_url: "https:\/\/raw.githubusercontent.com\/helxplatform\/appstore"
+  appstore_asset_base_url: 'https:\/\/raw.githubusercontent.com\/helxplatform\/appstore'
   appstore_asset_branch: "master"
   brand_name: ""
   hidden_result_tabs: ""
@@ -73,6 +73,8 @@ config:
     # -- If search page should show up. This is configured to work with DUG
     enabled: "true"
     url: 'https:\/\/helx.renci.org'
+    # --- If guided tour for search should show up
+    tour_enabled: "false"
   tranql_url: 'https:\/\/helx.renci.org\/tranql\/'
   # -- Support page sections to display. If a link is provided, the corresponding section will be displayed
   support:
@@ -82,6 +84,10 @@ config:
     user_guide_url: ''
     # -- Link for a page with FAQs.
     faqs_url: ''
+    # -- Link to an introduction video for the deployment.
+    intro_video_url: ''
+    # -- Link to a video on how to use the deployment
+    howto_video_url: ''
   workspaces:
     # -- Allow Workspaces.
     enabled: "true"

@@ -146,21 +146,6 @@ spec:
                 configMapKeyRef:
                   key: support_faqs_url
                   name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_SUPPORT_INTRO_VIDEO_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: support_intro_video_url
-                  name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_SUPPORT_HOWTO_VIDEO_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: support_howto_video_url
-                  name: {{ include "ui.fullname" . }}-config
-            - name: REACT_APP_SEARCH_TOUR_ENABLED
-              valueFrom:
-                configMapKeyRef:
-                  key: search_tour_enabled
-                  name: {{ include "ui.fullname" . }}-config
       volumes:
         - name: branddesc
           configMap:

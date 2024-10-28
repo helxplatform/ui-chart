@@ -2,7 +2,7 @@
 
 A Helm chart for Kubernetes
 
-![Version: 1.3.0](https://img.shields.io/badge/Version-1.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.1.0](https://img.shields.io/badge/AppVersion-6.1.0-informational?style=flat-square)
+![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.3.0](https://img.shields.io/badge/AppVersion-6.3.0-informational?style=flat-square)
 
 ## About HELX-UI
 
@@ -29,6 +29,7 @@ Additionally there is a workflow that allows bumping the chart version, if this 
 | config.analytics.enabled | bool | `false` |  |
 | config.analytics.platform | string | `"google"` |  |
 | config.analytics.token | string | `""` |  |
+| config.appstore_asset_base_url | string | `"https:\\/\\/raw.githubusercontent.com\\/helxplatform\\/appstore"` |  |
 | config.appstore_asset_branch | string | `"master"` |  |
 | config.brand_description | object | `{"html":""}` | Multiline value (4 space indent) with html code describing the deployment, will be displayed on the Workspaces login page |
 | config.brand_name | string | `""` |  |
@@ -38,10 +39,13 @@ Additionally there is a workflow that allows bumping the chart version, if this 
 | config.meta.description | string | `"HeLx UI"` | Page description with a link preview. |
 | config.meta.title | string | `"HeLx UI"` | Browser tab title and title on "Workspaces" login page |
 | config.search.enabled | string | `"true"` | If search page should show up. This is configured to work with DUG |
+| config.search.tour_enabled | string | `"false"` | - If guided tour for search should show up |
 | config.search.url | string | `"https:\\/\\/helx.renci.org"` |  |
-| config.support | object | `{"faqs_url":"","help_portal_url":"","user_guide_url":""}` | Support page sections to display. If a link is provided, the corresponding section will be displayed |
+| config.support | object | `{"faqs_url":"","help_portal_url":"","howto_video_url":"","intro_video_url":"","user_guide_url":""}` | Support page sections to display. If a link is provided, the corresponding section will be displayed |
 | config.support.faqs_url | string | `""` | Link for a page with FAQs. |
 | config.support.help_portal_url | string | `""` | Link to portal for submitting tickets/requesting features/reporting bugs |
+| config.support.howto_video_url | string | `""` | Link to a video on how to use the deployment |
+| config.support.intro_video_url | string | `""` | Link to an introduction video for the deployment. |
 | config.support.user_guide_url | string | `""` | Link to a page with user instructions on how to use the deployment |
 | config.tranql_url | string | `"https:\\/\\/helx.renci.org\\/tranql\\/"` |  |
 | config.workspaces.enabled | string | `"true"` | Allow Workspaces. |
